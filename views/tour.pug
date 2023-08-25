@@ -20,12 +20,12 @@ block content
 
     .heading-box
       h1.heading-primary
-        span= `${tour.name} tour`
+        span= `${tour.name}`
       .heading-box__group
         .heading-box__detail
           svg.heading-box__icon
             use(xlink:href='/img/icons.svg#icon-clock')
-          span.heading-box__text= `${tour.duration} days`
+          span.heading-box__text= `${tour.duration} дней`
         .heading-box__detail
           svg.heading-box__icon
             use(xlink:href='/img/icons.svg#icon-map-pin')
@@ -35,29 +35,32 @@ block content
     .overview-box
       div
         .overview-box__group
-          h2.heading-secondary.ma-bt-lg Quick facts
+          h2.heading-secondary.ma-bt-lg Краткое описание
 
-          - const date = tour.startDates[0].toLocaleString('en-us', {month: 'long', year: 'numeric'})
-          +overviewBox('Next date', date, 'calendar')
-          +overviewBox('Difficulty', tour.difficulty, 'trending-up')
-          +overviewBox('Participants', `${tour.maxGroupSize} people`, 'user')
-          +overviewBox('Rating', `${tour.ratingsAverage} / 5`, 'star')
+          - const date = tour.startDates[0].toLocaleString('en-us', {year: 'numeric'})
+          +overviewBox('Дата тура', date, 'calendar')
+          +overviewBox('Длительность тура', `${tour.duration}-дней`, 'clock')
+          +overviewBox("Цена человек/день", `$${tour.price}`, 'trending-up')
+          +overviewBox('Тип тура', `${tour.type}`, 'type')
+          +overviewBox('Количество человек', `${tour.maxGroupSize}`, 'user')
+          +overviewBox('Рейтинг', `${tour.ratingsAverage} / 5`, 'star')
+          +overviewBox('Цена и длительность тура могут быть обсуждены с менеджером')
 
         .overview-box__group
-          h2.heading-secondary.ma-bt-lg Your tour guides
+          h2.heading-secondary.ma-bt-lg Гиды
 
           each guide in tour.guides
             .overview-box__detail
               //- img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
 
               - if (guide.role === 'lead-guide')
-                span.overview-box__label Lead guide
+                span.overview-box__label Тур гид
               - if (guide.role === 'guide')
-                span.overview-box__label Tour guide
+                span.overview-box__label Тур гид
               span.overview-box__text= guide.name
 
     .description-box
-      h2.heading-secondary.ma-bt-lg= `About ${tour.name} tour`
+      h2.heading-secondary.ma-bt-lg= `Про ${tour.name} tour`
       - const parapraphs = tour.description.split('\n');
       each p in parapraphs
         p.description__text= p
@@ -82,8 +85,8 @@ block content
       img.cta__img.cta__img--1(src=`/img/tours/${tour.images[1]}`, alt='Tour picture')
       img.cta__img.cta__img--2(src=`/img/tours/${tour.images[2]}`, alt='Tour picture')
       .cta__content
-        h2.heading-secondary What are you waiting for?
-        p.cta__text= `${tour.duration} days. 1 adventure. Infinite memories. Make it yours today!`
-        p.cta__text= "Book your tour with our agent"
+        h2.heading-secondary Чего Вы ждете?
+        p.cta__text= `Один тур. Бесконечность впечатлений!`
+        p.cta__text= "Свяжитесь с нашим менеджером."
         p.cta__text= " +7-777-777-7777"
         //- button.btn.btn--green.span-all-rows Book tour now!

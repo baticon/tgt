@@ -169,8 +169,8 @@ body {
 .heading-primary {
   font-size: 5rem;
   text-align: center;
-  width: 70%;
-  margin: 0 auto;
+  /* width: 70%;
+  margin: 0 auto; */
 }
 
 .heading-tertirary {
@@ -178,7 +178,7 @@ body {
   text-align: right;
   position: absolute;
   bottom: 1rem;
-  right: 2rem;
+  /* right: 2rem; */
   width: 70%;
   z-index: 10;
 }
@@ -380,6 +380,7 @@ body {
 }
 
 .heading-box {
+  width: 100%;
   position: absolute;
   bottom: 13vw;
   left: 50%;
@@ -474,6 +475,12 @@ body {
   align-items: center;
   font-weight: 400;
 }
+
+.overview-box__detail span:last-child {
+  /* color: red; */
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .overview-box__detail svg {
   margin-right: 1.25rem;
 }
@@ -1145,6 +1152,8 @@ body {
   margin-bottom: 0.75rem;
 }
 .card__data {
+  /* font-family: 'Lato', sans-serif !important; */
+  font-family: Arial, Helvetica, sans-serif !important;
   font-size: 1.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1153,6 +1162,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+
 .card__data svg {
   margin-right: 0.7rem;
 }
@@ -1321,4 +1331,98 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1200px) {
+  .card__details {
+    padding: 2rem 2rem;
+  }
+
+  .card__text {
+    grid-column: 1 / -1;
+    font-size: 1.2rem;
+  }
+
+  .card__data {
+    font-size: 1rem;
+  }
+
+  .card__footer {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heading-primary {
+    font-size: 4rem;
+  }
+
+  .heading-box__detail {
+    font-size: 1rem;
+  }
+
+  .cta__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .heading-primary {
+    font-size: 3rem;
+  }
+
+  .heading-box__detail {
+    font-size: 1rem;
+  }
+
+  .heading-primary {
+    font-size: 2rem;
+  }
+
+  .heading-box__detail {
+    font-size: 1rem;
+  }
+
+  .section-description {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 2rem 2rem;
+  }
+
+  .cta img {
+    display: none;
+  }
+
+  .cta div:first-child {
+    display: none;
+  }
+
+  .cta {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .section-header {
+    height: 55vw;
+  }
+
+  .heading-box__group {
+    margin-top: 1rem;
+  }
 }
